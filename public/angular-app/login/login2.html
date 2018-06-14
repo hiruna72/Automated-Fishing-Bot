@@ -1,0 +1,79 @@
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<link rel="icon" type="image/png" href="Login-CSS/login/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="Login-CSS/login/css/main.css">
+    <link rel="stylesheet" href="Login-CSS/css/style.css">
+    
+</head>
+<style>
+    body{
+        background-image:url("img/background2.jpg")
+        }    
+</style>    
+    
+<body >
+	<div class="limiter">
+        <h1>Automated Fishing Bot</h1>
+		<div class="container-login100" ng-controller="LoginController as vm" ng-init="vm.init()">    
+			<div class="wrap-login100">
+                 <div ng-if="vm.error" class="alert alert-danger" role="alert">
+                <p>{{vm.error}}</p>
+            </div>
+				<form class="login100-form validate-form" ng-if="!vm.isLoggedIn()" role="login" ng-submit="vm.login()">
+					<span class="login100-form-title p-b-34 p-t-27">Log in</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Username" ng-model="vm.username" required>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="password" placeholder="Password" ng-model="vm.password" required>
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        <span ng-show="vm.password.$dirty && vm.password.$error.required" class="help-block">Password is required</span>
+					</div>
+
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">Remember me</label>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button type="submit" ng-click='vm.chartdata()' class="login100-form-btn">Login</button>
+					</div>
+
+					<div class="text-center p-t-15">
+						<a a href="#!/register" class="txt1" href="#">Register</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+	<script src="Login-CSS/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="Login-CSS/login/vendor/animsition/js/animsition.min.js"></script>
+	<script src="Login-CSS/login/vendor/bootstrap/js/popper.js"></script>
+	<script src="Login-CSS/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="Login-CSS/login/vendor/select2/select2.min.js"></script>
+	<script src="Login-CSS/login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="Login-CSS/login/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="Login-CSS/login/vendor/countdowntime/countdowntime.js"></script>
+	<script src="Login-CSS/login/js/main.js"></script>
+
+</body>

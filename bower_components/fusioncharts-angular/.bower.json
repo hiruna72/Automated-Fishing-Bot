@@ -1,0 +1,33 @@
+{
+  "name": "fusioncharts-angular",
+  "main": "angular-fusioncharts.js",
+  "authors": [
+    "suvradip saha <suvradip@fusioncharts.com>"
+  ],
+  "description": "Angular plugin for FusionCharts",
+  "keywords": [
+    "angular-fusioncharts",
+    "fusioncharts",
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.fusioncharts.com/dev/using-with-javascript-libraries/angularjs/introduction.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "1.0.0",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.0",
+    "commit": "a5d3289dffb243431afef9e573a41d71b6f736ef"
+  },
+  "_source": "https://github.com/suvradip/fusioncharts-angular.git",
+  "_target": "^1.0.0",
+  "_originalSource": "fusioncharts-angular",
+  "_direct": true
+}

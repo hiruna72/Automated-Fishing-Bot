@@ -1,0 +1,118 @@
+<body>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/reset.css"> 
+    <link rel="stylesheet" href="/css/style.css">        
+    <link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    
+    <header class="cd-main-header">
+            <a href="#0" class="cd-logo"><img src="img/Kraken%20(Custom) (2).PNG" alt="Logo"></a>
+			<a href="#0" class="cd-nav-trigger">Menu<span></span></a>            
+            <div ng-controller="LoginController as vm" ng-init="vm.init()">
+                <div>
+                    <nav class="cd-nav">                
+                        <ul class="cd-top-nav" ng-if="!vm.LoggedIn()">    
+        <!--
+                            <ul ng-if="!vm.LoggedIn()" class="nav navbar-nav navbar-left">
+                                <li><p class="navbar-text"Welcome {{vm.loggedinUser}}></p></li>
+                                <li><button class="navbar-btn" ng-click="vm.logout()">Logout</button></li>
+                            </ul>
+        -->                 
+                            <li ng-class="vm.isActiveTab('')" ng-if="vm.isLoggedIn()" class="has-children"><a href="#!/" ng-click="vm.logout()"><img src="img/cd-user%20(Custom).png" alt="avatar">Logout</a></li>     
+<!--
+                            <li class="has-children account"><a><img src="img/cd-user%20(Custom).png" alt="avatar">Account</a>
+                                <ul class="nav navbar-nav navbar-left">
+                                    <li><a href="#0">My Account</a></li>
+                                    <li><a href="#0">Edit Account</a></li>
+                                    <li><a href="#!/" ng-click="vm.logout()">Logout</a></li>
+                                </ul>
+                            </li>                    
+-->
+                        </ul>
+                    </nav>
+                    </div>
+                </div>
+		</header>
+    
+<!--        <main class="cd-main-content">-->
+			<nav ng-controller="LoginController as vm" class="cd-side-nav" ng-init="vm.init()">
+				<ul>
+					<li class="cd-label">Menu</li>
+					<li ng-class="vm.isActiveTab('')" class=""><a href="#!/">Home</a></li>
+                    <li ng-class="vm.isActiveTab('bots')" class="overview"><a href="#!/bots">Dashboard</a></li>
+					<li ng-class="vm.isActiveTab('register')" ng-if="vm.isLoggedIn()"><a href="#!/register">Register</a></li>
+                    <li ng-class="vm.isActiveTab('profile')" ng-if="vm.isLoggedIn()"><a href="#!/profile">Profile</a></li>
+					<li class="comments"><a href="#0">Contact Us</a></li>
+				</ul>                
+			</nav>          
+		
+    
+            <div class="limiter">
+                <div class="container-barchart">
+                    <div>
+                        <cenrer>
+                              <fusioncharts width="500" 
+                                            height="400" 
+                                            type="column2d" 
+                                            id="chart-1" 
+                                            dataformat="json" 
+                                            datasource={{data}}>
+                              </fusioncharts>
+                        </cenrer>
+                    </div>
+                    <div>
+                        <fusioncharts width="500" 
+                                      height="400" 
+                                      type="pie3d" 
+                                      id="chart-1" 
+                                      dataformat="json" 
+                                      datasource={{data}}>
+                        </fusioncharts>
+                    </div>
+                </div>    
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100 ver3">
+                            <div class="table100-head">
+                                <table>
+                                    <thead>
+                                        <tr class="row100 head">
+                                            <th class="cell100 column1">Relay Node ID</th>
+                                            <th class="cell100 column2">Active Hours</th>									
+                                            <th class="cell100 column3">Triggers</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+
+                            <div class="table100-body js-pscroll">
+                                <table>
+                                    <tbody ng-repeat="bot in vm.bots">
+                                        <tr class="row100 body" ng-repeat="data in bot.TriggerData">
+                                            <td class="cell100 column1">{{bot.BotID}}</td>
+                                            <td class="cell100 column2">{{data.TimeStamp}}</td>
+                                            <td class="cell100 column3">{{data.Triggers}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>            
+<!--        </main>-->
+    
+  
+    
+</body>

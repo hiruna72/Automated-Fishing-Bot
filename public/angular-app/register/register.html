@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" href="Register/register/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="Register/register/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/css/util.css">
+	<link rel="stylesheet" type="text/css" href="Register/register/css/main.css">
+    <link rel="stylesheet" href="Register/css/style.css">
+    
+</head>
+<style>
+    body{
+        background-image:url("img/background2.jpg")
+        }    
+</style>    
+    
+<body >
+	<div class="limiter">
+		<div class="container-login100" >          
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" name="form" id="form" ng-controller="RegisterController as vm" ng-init="vm.init()" ng-if="!vm.isLoggedIn()" ng-submit="vm.register()">
+                    <div ng-if="vm.message" class="alert alert-success" role="alert">
+                        <p>{{vm.message}}</p>
+                    </div>
+                    <div ng-if="vm.error" class="alert alert-danger" role="alert">
+                        <p>{{vm.error}}</p>
+                    </div>  
+					<span class="login100-form-title p-b-34 p-t-27">Register</span>
+					<div class="wrap-input100 validate-input" data-validate = "Enter Firstname">
+						<input class="input100" type="text" name="firstname" placeholder="Firstname" ng-model="vm.firstname" required>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Firstname is required</span>
+					</div>
+                    <div class="wrap-input100 validate-input" data-validate = "Enter Lastname">
+						<input class="input100" type="text" name="lastname" placeholder="Lastname" ng-model="vm.lastname" required>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Lastname is required</span>
+					</div>
+                    <div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Username" ng-model="vm.username" required>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+					</div>
+                     <div class="wrap-input100 validate-input" data-validate = "Enter locationID">
+						<input class="input100" type="text" name="locationID" placeholder="Location ID" ng-model="vm.locationID" required>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        <span ng-show="form.locationID.$dirty && form.locationID.$error.required" class="help-block">Location is required</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="password" placeholder="Password" ng-model="vm.password" required>
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        <span ng-show="vm.password.$dirty && vm.password.$error.required" class="help-block">Password is required</span>
+					</div>	
+                    <div class="wrap-input100 validate-input" data-validate="Re-enter password">
+						<input class="input100" type="password" name="password" placeholder="Repeat Password" ng-model="vm.passwordRepeat" required>
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        <span ng-show="vm.password.$dirty && vm.password.$error.required" class="help-block">Password is required</span>
+					</div>					
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">Register</button>
+					</div>
+
+					<div class="text-center p-t-15">
+						<a a href="#!/login" class="txt1" href="#">Login</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+	<script src="Register/register/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="Register/register/vendor/animsition/js/animsition.min.js"></script>
+	<script src="Register/register/vendor/bootstrap/js/popper.js"></script>
+	<script src="Register/register/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="Register/register/vendor/select2/select2.min.js"></script>
+	<script src="Register/register/vendor/daterangepicker/moment.min.js"></script>
+	<script src="Register/register/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="Register/register/vendor/countdowntime/countdowntime.js"></script>
+	<script src="Register/register/js/main.js"></script>
+
+</body>
+</html>

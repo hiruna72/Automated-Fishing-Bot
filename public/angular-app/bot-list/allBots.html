@@ -1,0 +1,118 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="Dashboard/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="Dashboard/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="Dashboard/vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="Dashboard/vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="Dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" type="text/css" href="Dashboard/css/util.css">
+<link rel="stylesheet" href="Dashboard/css/reset.css"> 
+<link rel="stylesheet" href="Dashboard/css/style.css">
+<link rel="stylesheet" href="Dashboard/css/main.css">
+<head>
+    <script>
+        $(load = function($interval,$scope,$http,AuthFactory)
+        {				
+            var prevlength;
+            $.ajax({
+                type: 'GET',
+                url:'/api/bots',
+                timeout: 70000,
+                contentType: 'application/json',
+                success: function(response) 
+                {
+                    console.log('success');
+                    console.log(response);
+                    prevlength = response.length;
+                    for(var i=0;i<response.length;i++)
+                    {
+                        console.log("TEST1");
+                        var doc = response[i];
+                        
+                        document.getElementById('table').innerHTML += '<tr class="row100 body"><td class="cell100 column1">'+doc.ClientID+'</td><td class="cell100 column2">'+doc.No_bots+'</td><td class="cell100 column3">'+doc.Performance+'</td></tr>'                
+                    }
+                }
+            });
+            
+            function reload(){
+                $.ajax({
+                    type: 'GET',
+                    url:'/api/bots',
+                    timeout: 70000,
+                    contentType: 'application/json',
+                    success: function(response) 
+                    {
+                        console.log('success2');
+                        console.log(response);
+                        if(prevlength<response.length){
+                            prevlength = response.length;
+                            var doc = response[response.length-1];
+                            console.log("TEST2");                        
+                            document.getElementById('table').innerHTML += '<tr class="row100 body"><td class="cell100 column1">'+doc.ClientID+'</td><td class="cell100 column2">'+doc.No_bots+'</td><td class="cell100 column3">'+doc.Performance+'</td></tr>'                                        
+                        }
+                    }
+                });       
+            }            
+            setInterval(reload,20000);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-barchart">
+            <div>
+                <cenrer>
+                      <fusioncharts width="500" 
+                                    height="400" 
+                                    type="column2d" 
+                                    id="chart-1" 
+                                    dataformat="json" 
+                                    datasource={{data}}>
+                      </fusioncharts>
+                </cenrer>
+            </div>
+            <div>
+                <fusioncharts width="500" 
+                              height="400" 
+                              type="pie3d" 
+                              id="chart-1" 
+                              dataformat="json" 
+                              datasource={{data}}>
+                </fusioncharts>
+            </div>
+        </div>    
+    </div>            
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver3">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Relay Node ID</th>
+                                <th class="cell100 column2">Number of Bots</th>									
+                                <th class="cell100 column3">Performance</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody id="table">
+<!--
+                            <tr class="row100 body">
+                                <td class="cell100 column1">{{bot.BotID}}</td>
+                                <td class="cell100 column2">{{data.TimeStamp}}</td>
+                                <td class="cell100 column3">{{data.Triggers}}</td>
+                            </tr>
+-->
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>          
+    </div>
+</body>

@@ -1,0 +1,22 @@
+{
+  "name": "fusioncharts-angular",
+  "main": "angular-fusioncharts.js",
+  "authors": [
+    "suvradip saha <suvradip@fusioncharts.com>"
+  ],
+  "description": "Angular plugin for FusionCharts",
+  "keywords": [
+    "angular-fusioncharts",
+    "fusioncharts",
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.fusioncharts.com/dev/using-with-javascript-libraries/angularjs/introduction.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
