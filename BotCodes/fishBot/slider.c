@@ -1,0 +1,3 @@
+bool moveSlider(bool dir) {
+  
+}

@@ -1,0 +1,5 @@
+https://playground.arduino.cc/Code/AvoidDelay
+
+http://forum.arduino.cc/index.php?topic=66062.0
+
+https://github.com/prampec/arduino-softtimer/blob/wiki/QuickStartGuide.md
